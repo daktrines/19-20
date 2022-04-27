@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище FactoryModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Factory">
+          <Key>
+            <PropertyRef Name="Number" />
+          </Key>
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="SurnameCollector" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NameCollector" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PatronymicCollector" Type="nvarchar" MaxLength="50" />
+          <Property Name="CountOfManufacturedDetailsMonday" Type="int" />
+          <Property Name="CountOfManufacturedDetailsTuesday" Type="int" />
+          <Property Name="CountOfManufacturedDetailsWednesday" Type="int" />
+          <Property Name="CountOfManufacturedDetailsThursday" Type="int" />
+          <Property Name="CountOfManufacturedDetailsFriday" Type="int" />
+          <Property Name="CountOfManufacturedDetailsSaturday" Type="int" />
+          <Property Name="CountOfManufacturedDetailsSunday" Type="int" />
+          <Property Name="NameFactory" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TypeDetails" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PriceDetails" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Password">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="int" Nullable="false" />
+          <Property Name="Логин" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Пароль" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Доступ" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Почта" Type="nvarchar" MaxLength="50" />
+          <Property Name="Фамилия" Type="nvarchar" MaxLength="50" />
+          <Property Name="Имя" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="Хранилище FactoryModelContainer">
+          <EntitySet Name="Factory" EntityType="Self.Factory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Password" EntityType="Self.Password" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FactoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Factory">
+          <Key>
+            <PropertyRef Name="Number" />
+          </Key>
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="SurnameCollector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NameCollector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PatronymicCollector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountOfManufacturedDetailsMonday" Type="Int32" />
+          <Property Name="CountOfManufacturedDetailsTuesday" Type="Int32" />
+          <Property Name="CountOfManufacturedDetailsWednesday" Type="Int32" />
+          <Property Name="CountOfManufacturedDetailsThursday" Type="Int32" />
+          <Property Name="CountOfManufacturedDetailsFriday" Type="Int32" />
+          <Property Name="CountOfManufacturedDetailsSaturday" Type="Int32" />
+          <Property Name="CountOfManufacturedDetailsSunday" Type="Int32" />
+          <Property Name="NameFactory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TypeDetails" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PriceDetails" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="FactoryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Factories" EntityType="Self.Factory" />
+          <EntitySet Name="Passwords" EntityType="FactoryModel.Password" />
+        </EntityContainer>
+        <EntityType Name="Password">
+          <Key>
+            <PropertyRef Name="Код" />
+          </Key>
+          <Property Name="Код" Type="Int32" Nullable="false" />
+          <Property Name="Логин" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Пароль" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Доступ" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Почта" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище FactoryModelContainer" CdmEntityContainer="FactoryEntities">
+          <EntitySetMapping Name="Factories">
+            <EntityTypeMapping TypeName="FactoryModel.Factory">
+              <MappingFragment StoreEntitySet="Factory">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="SurnameCollector" ColumnName="SurnameCollector" />
+                <ScalarProperty Name="NameCollector" ColumnName="NameCollector" />
+                <ScalarProperty Name="PatronymicCollector" ColumnName="PatronymicCollector" />
+                <ScalarProperty Name="CountOfManufacturedDetailsMonday" ColumnName="CountOfManufacturedDetailsMonday" />
+                <ScalarProperty Name="CountOfManufacturedDetailsTuesday" ColumnName="CountOfManufacturedDetailsTuesday" />
+                <ScalarProperty Name="CountOfManufacturedDetailsWednesday" ColumnName="CountOfManufacturedDetailsWednesday" />
+                <ScalarProperty Name="CountOfManufacturedDetailsThursday" ColumnName="CountOfManufacturedDetailsThursday" />
+                <ScalarProperty Name="CountOfManufacturedDetailsFriday" ColumnName="CountOfManufacturedDetailsFriday" />
+                <ScalarProperty Name="CountOfManufacturedDetailsSaturday" ColumnName="CountOfManufacturedDetailsSaturday" />
+                <ScalarProperty Name="CountOfManufacturedDetailsSunday" ColumnName="CountOfManufacturedDetailsSunday" />
+                <ScalarProperty Name="NameFactory" ColumnName="NameFactory" />
+                <ScalarProperty Name="TypeDetails" ColumnName="TypeDetails" />
+                <ScalarProperty Name="PriceDetails" ColumnName="PriceDetails" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Passwords">
+            <EntityTypeMapping TypeName="FactoryModel.Password">
+              <MappingFragment StoreEntitySet="Password">
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Почта" ColumnName="Почта" />
+                <ScalarProperty Name="Доступ" ColumnName="Доступ" />
+                <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+                <ScalarProperty Name="Логин" ColumnName="Логин" />
+                <ScalarProperty Name="Код" ColumnName="Код" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
