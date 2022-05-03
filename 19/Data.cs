@@ -17,6 +17,6 @@ namespace _19
         //Права доступа
         public static string Right;
         //Описываем глобальную переменную для запроса
-        public static IQueryable<Factory> SQL;
+        public static IQueryable SQL;
     }
 }

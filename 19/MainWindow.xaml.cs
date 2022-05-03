@@ -94,9 +94,9 @@ namespace _19
                 try
                 {
                     //Получаем текущую запись
-                    //Tenni row = (Tenni)DataGrid1.SelectedItems[0];
+                    //Factory row = (Factory)DataGrid1.SelectedItems[0];
                     Factory row = (Factory)DataGrid1.Items[indexRow];
-                    //Tenni row = (Tenni)DataGrid1.CurrentCell.Item;
+                    //Factory row = (Factory)DataGrid1.CurrentCell.Item;
                     //Удаляем запись
                     db.Factories.Remove(row);
                     db.SaveChanges();
@@ -135,18 +135,20 @@ namespace _19
                 f.ShowDialog();
                 DataGrid1.Focus();
                 //Обращаемся к классу и выводим запрос
-                DataGrid1.ItemsSource = Data.SQL.ToList();
-            }
+                DataGrid1.ItemsSource = Data.SQL.ToListAsync().Result;
+        }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
-        }
+}
 
         //кнопка обновление таблицы
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             //Обновляем таблицу
+            db = new FactoryEntities();
+            db.Factories.Load();
             DataGrid1.ItemsSource = db.Factories.Local.ToBindingList();
         }
     }
