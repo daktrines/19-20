@@ -9,11 +9,11 @@
     <Grid>
         <GroupBox Header="Запросы на выборку" HorizontalAlignment="Left" Height="153" Margin="10,10,0,0" VerticalAlignment="Top" Width="163">
             <StackPanel Margin="0,5,0,0">
-                <Button x:Name="Query1" ToolTip="Выборка рабочих, фамилии которых начинаются на М" Content="1 запрос" Height="24" Click="Query1_Click"/>
-                <Button x:Name="Query2" ToolTip="Фамилии рабочих идут по возрастанию" Content="2 запрос" Height="24" Click="Query2_Click"/>
-                <Button x:Name="Query3" ToolTip="Количество рабочих" Content="3 запрос" Height="24" Click="Query3_Click"/>
-                <Button x:Name="Query4" ToolTip="Максимальная стоимость изделия" Content="4 запрос" Height="24" Click="Query4_Click"/>
-                <Button x:Name="Query5" ToolTip="Сумма всех цен изделий" Content="5 запрос" Height="24" Click="Query5_Click"/>
+                <Button x:Name="Query1" ToolTip="Выборка рабочих, фамилии которых начинаются на М" Content="Выборка 1" Height="24" Click="Query1_Click"/>
+                <Button x:Name="Query2" ToolTip="Фамилии рабочих идут по возрастанию" Content="Выборка 2" Height="24" Click="Query2_Click"/>
+                <Button x:Name="Query3" ToolTip="Количество рабочих" Content="Выборка 3" Height="24" Click="Query3_Click"/>
+                <Button x:Name="Query4" ToolTip="Максимальная стоимость изделия" Content="Выборка 4" Height="24" Click="Query4_Click"/>
+                <Button x:Name="Query5" ToolTip="Сумма всех цен изделий" Content="Выборка 5" Height="24" Click="Query5_Click"/>
             </StackPanel>
         </GroupBox>
         <GroupBox Header="Запросы на обновление" HorizontalAlignment="Left" Height="236" Margin="178,10,0,0" VerticalAlignment="Top" Width="163">
@@ -22,17 +22,16 @@
                 <TextBox x:Name="nomer" Height="23"/>
                 <Label Content="Фамилия"/>
                 <TextBox x:Name="surname" Height="23"/>
-                <Button x:Name="Query6" ToolTip="Обновление по номеру и фамилии рабочего" Content="1 запрос" Height="24" Click="Query6_Click"/>
+                <Button x:Name="Query6" ToolTip="Обновление по номеру и фамилии рабочего" Content="Обновление 1" Height="24" Click="Query6_Click"/>
                 <Label Content="Стоимость"/>
                 <TextBox x:Name="price" Height="23"/>
 
-                <Button x:Name="Query7" ToolTip="Обновление по номеру и стоимости изделий" Content="2 запрос" Height="24" Click="Query7_Click"/>
+                <Button x:Name="Query7" ToolTip="Обновление по номеру и стоимости изделий" Content="Обновление 2" Height="24" Click="Query7_Click"/>
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="Запросы на удаление" HorizontalAlignment="Left" Height="83" Margin="10,168,0,0" VerticalAlignment="Top" Width="163">
-            <StackPanel Margin="0,5,0,0">
-                <Button x:Name="Query8" ToolTip="Удаление по номеру" Content="1 запрос" Height="24" Click="Query8_Click"/>
-                <Button x:Name="Query9" ToolTip="Фиксированное удаление по номеру 16" Content="2 запрос" Height="24" Click="Query9_Click"/>
+        <GroupBox Header="Запросы на удаление" HorizontalAlignment="Left" Height="60" Margin="10,177,0,0" VerticalAlignment="Top" Width="163">
+            <StackPanel Margin="0,5,0,-5">
+                <Button x:Name="Query8" ToolTip="Удаление по номеру" Content="Удаление" Height="25" Click="Query8_Click"/>
             </StackPanel>
         </GroupBox>
 

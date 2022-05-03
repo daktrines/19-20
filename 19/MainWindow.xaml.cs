@@ -112,11 +112,11 @@ namespace _19
         private void Information_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Калион Екатерина " +
-               "\n19 пр" +
+               "\n19-20 пр" +
                "\nВариант 1." +
                "Учет изделий, собранных в цехе за неделю. База данных должна содержать следующую " +
                "информацию: фамилию, имя, отчество сборщика, количество изготовленных изделий за" +
-               "каждый день недели раздельно, название цеха, а также тип изделия и его стоимость.", "Информация", MessageBoxButton.OK, MessageBoxImage.Question);
+               "каждый день недели раздельно, название цеха, а также тип изделия и его стоимость. Сделать авторизацию БД", "Информация", MessageBoxButton.OK, MessageBoxImage.Question);
 
         }
 
@@ -128,20 +128,22 @@ namespace _19
         //Кнопка просмотр
         private void View_Click(object sender, RoutedEventArgs e)
         {
-            try
+            //Открываем форму просмотр
+            View f = new View();
+            DataGrid1.Focus();
+            if (f.ShowDialog() == true)
             {
-                //Открываем форму просмотр
-                View f = new View();
-                f.ShowDialog();
-                DataGrid1.Focus();
-                //Обращаемся к классу и выводим запрос
-                DataGrid1.ItemsSource = Data.SQL.ToListAsync().Result;
-        }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
+                try
+                {
+                    //Обращаемся к классу и выводим запрос
+                    DataGrid1.ItemsSource = Data.SQL.ToListAsync().Result;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
             }
-}
+    }
 
         //кнопка обновление таблицы
         private void Update_Click(object sender, RoutedEventArgs e)
